@@ -1,0 +1,27 @@
+{
+  "name": "trustswap-vest-contracts",
+  "version": "1.0.0",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raptor1001/trustswap-vest-contracts.git"
+  },
+  "author": "derekleesoft@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raptor1001/trustswap-vest-contracts/issues"
+  },
+  "homepage": "https://github.com/raptor1001/trustswap-vest-contracts#readme",
+  "dependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "@openzeppelin/contracts": "^3.3.0",
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-truffle5": "^2.0.0",
+    "hardhat": "^2.0.6"
+  }
+}

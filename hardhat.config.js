@@ -1,4 +1,7 @@
 require("@nomiclabs/hardhat-truffle5");
+require("@nomiclabs/hardhat-etherscan");
+require("@nomiclabs/hardhat-ethers");
+require("dotenv").config();
 
 module.exports = {
   networks: {
@@ -15,6 +18,15 @@ module.exports = {
         evmVersion: "byzantium",
       },
     },
+    rinkeby: {
+      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`,
+      accounts: [process.env.PRIVATEKEY],
+      live: true,
+      saveDeployments: true,
+    },
+  },
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_APIKEY,
   },
   solidity: {
     version: "0.6.12",

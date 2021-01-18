@@ -22,23 +22,30 @@ contract SwapTokenLocker is SwapAdmin, Pausable {
         token = IERC20(_token);
     }
     
-    function sendLockTokenMany(address[] calldata _users, uint256[] calldata _amounts, uint256[] calldata _lockHours) external onlyAdmin {
+	function getLockData(address _user) public view returns(uint256, uint256, uint256, uint256) {
+		return (lockData[_user].amount, lockData[_user].lockTimestamp, lockData[_user].lockHours, lockData[_user].claimedAmount);
+	}
+
+    function sendLockTokenMany(address[] calldata _users, uint256[] calldata _amounts, uint256[] calldata _lockTimestamps, uint256[] calldata _lockHours) external onlyAdmin {
         require(_users.length == _amounts.length, "array length not eq");
         require(_users.length == _lockHours.length, "array length not eq");
+        require(_users.length == _lockTimestamps.length, "array length not eq");
         for (uint256 i=0; i < _users.length; i++) {
-            sendLockToken(_users[i], _amounts[i], _lockHours[i]);
+            sendLockToken(_users[i], _amounts[i], _lockTimestamps[i], _lockHours[i]);
         }
     }
 
     // 1. msg.sender/admin approve many token to this contract
-    function sendLockToken(address _user, uint256 _amount, uint256 _lockHours) public onlyAdmin returns (bool) {
+    function sendLockToken(address _user, uint256 _amount, uint256 _lockTimestamp, uint256 _lockHours) public onlyAdmin returns (bool) {
         require(_amount > 0, "amount can not zero");
         require(lockData[_user].amount == 0, "this address has locked");
         require(_lockHours > 0, "lock hours need more than zero");
+        require(_lockTimestamp > 0, "lock timestamp need more than zero");
         
         LockInfo memory lockinfo = LockInfo({
             amount: _amount,
-            lockTimestamp: block.timestamp,
+            //lockTimestamp: block.timestamp,
+            lockTimestamp: _lockTimestamp,
             lockHours: _lockHours,
             claimedAmount: 0
         });

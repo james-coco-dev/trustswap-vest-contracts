@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "compile": "npx hardhat compile",
-    "deploy:rinkeby": "npx hardhat run --network rinkeby scripts/deploy.js"
+    "deploy:rinkeby": "npx hardhat run --network rinkeby scripts/deploy.js",
+    "verify": "npx hardhat verify --network rinkeby 0x2CEfcB282E037245E1BBF9210252c308ffC12fEd '0x22b29196c49aA443d3E65297Eb5faE21D9CF1fe7' '0x5518876726C060b2D3fCda75c0B9f31F13b78D07'"
   },
   "repository": {
     "type": "git",

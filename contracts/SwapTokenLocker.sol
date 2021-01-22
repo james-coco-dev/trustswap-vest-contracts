@@ -57,6 +57,7 @@ contract SwapTokenLocker is SwapAdmin, Pausable {
     function claimToken(uint256 _amount) external returns (uint256) {
         require(_amount > 0, "Invalid parameter amount");
         address _user = msg.sender;
+        require(lockData[_user].lockTimestamp <= block.timestamp, "Vesting time is not started");
         require(lockData[_user].amount > 0, "No lock token to claim");
 
         uint256 passhours = block.timestamp.sub(lockData[_user].lockTimestamp).div(1 hours);

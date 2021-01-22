@@ -4,7 +4,7 @@
   "scripts": {
     "compile": "npx hardhat compile",
     "deploy:rinkeby": "npx hardhat run --network rinkeby scripts/deploy.js",
-    "verify": "npx hardhat verify --network rinkeby 0x2CEfcB282E037245E1BBF9210252c308ffC12fEd '0x22b29196c49aA443d3E65297Eb5faE21D9CF1fe7' '0x5518876726C060b2D3fCda75c0B9f31F13b78D07'"
+    "verify": "npx hardhat verify --network rinkeby 0x0a6A4F5Ad1498Bd018687910C9729b6DFA36abe4 '0x22b29196c49aA443d3E65297Eb5faE21D9CF1fe7' '0x5518876726C060b2D3fCda75c0B9f31F13b78D07'"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "@openzeppelin/cli": "^2.8.2",
     "@openzeppelin/contracts": "^3.3.0",
     "@openzeppelin/contracts-ethereum-package": "^3.0.0",
+    "@openzeppelin/test-helpers": "^0.5.10",
     "dotenv": "^8.2.0"
   },
   "devDependencies": {

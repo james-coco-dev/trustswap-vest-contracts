@@ -18,6 +18,12 @@ module.exports = {
         evmVersion: "byzantium",
       },
     },
+    mainnet: {
+      url: `https://eth-mainnet.alchemyapi.io/v2/sTeHQ8PCxlFp8svnRypVOH9_OZQC5cyk`,
+      accounts: [process.env.PRIVATEKEY],
+      live: true,
+      saveDeployments: true,
+    },
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${process.env.INFURA_KEY}`,
       accounts: [process.env.PRIVATEKEY],

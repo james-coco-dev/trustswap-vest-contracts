@@ -4,7 +4,7 @@ pragma solidity =0.6.12;
 
 import "@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol";
 
-contract TrustSwapToken {
+contract MockERC20 {
     using SafeMath for uint256;
 
     mapping(address => uint256) private _balances;
